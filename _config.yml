@@ -22,7 +22,7 @@ cusdis:
 user:
   name: Rookie550
   pic: /assets/img/eyes.jpg
-  picAlt: "catbook"
+  picAlt: "Rookie550"
   job: a category-centric theme
   aboutme: true # comment this out if you don't need the 'about' page.
 
