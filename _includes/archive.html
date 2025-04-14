@@ -17,26 +17,25 @@
       </li>
     {% endif %}
     {% endfor %}
+
   </ul>
 </div>
 
 <!-- main page -->
 {% else %}
 <div class="archive">
-  {% assign sorted_posts = site.posts | sort: 'date' %}
-  {% for post in sorted_posts %}
-    {% unless post.next %}
-      <h3 class="archive_year">{{ post.date | date: '%Y-%m' }}</h3>
-      <ul>
-    {% else %}
-      {% capture year_month %}{{ post.date | date: '%Y-%m' }}{% endcapture %}
-      {% capture next_year_month %}{{ post.next.date | date: '%Y-%m' }}{% endcapture %}
-      {% if year_month != next_year_month %}
-        </ul>
-        <h3 class="archive_year">{{ post.date | date: '%Y-%m' }}</h3>
-        <ul>
-      {% endif %}
-    {% endunless %}
+  {% for post in site.posts %}
+  {% unless post.next %}
+  <p class="archive_year">{{ post.date | date: '%Y' }}</p>
+  {% else %}
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+  {% capture nextyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+  {% if year != nextyear %}
+  <p class="archive_year">{{ post.date | date: '%Y' }}</p>
+  {% endif %}
+  {% endunless %}
+
+  <ul>
     <li>
       <time class='archive_date' datetime='{{ post.date | date_to_xmlschema }}'>
         {{ post.date | date: "%Y-%m-%d" }}
@@ -47,7 +46,7 @@
         </a>
       </div>
     </li>
-  {% endfor %}
   </ul>
+  {% endfor %}
 </div>
 {% endif %}
