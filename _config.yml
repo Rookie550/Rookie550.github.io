@@ -12,7 +12,7 @@ url: http://Rookie550.github.io/catbook # the base hostname & protocol for your 
 permalink: /:year-:month/:title
 timezone:
 
-favicon: /assets/img/favicon.ico
+favicon: /assets/img/eyes.jpg
 
 google_analytics: #UA—XXXXXXXX-X
 disqus_shortname: #disqus shortname
